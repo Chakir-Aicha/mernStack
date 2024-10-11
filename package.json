@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "init": "^0.1.2",
+    "mongoose": "^8.5.3"
+  },
+  "name": "plantshop",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Plantshop- ecommerce for buying plant.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "Shivani-Awasthi",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.4"
+  }
+}
