@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   mongo:
     image: mongo:latest
@@ -8,13 +7,16 @@ services:
     volumes:
       - mongo-data:/data/db
   backend:
-    image: mern-ecommerce-backend:latest  # Utiliser l'image préconstruite
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     ports:
       - "5000:5000"
     depends_on:
       - mongo
   frontend:
-    image: mern-ecommerce-frontend:latest  # Utiliser l'image préconstruite
+    build:
+      context: ./frontend
     ports:
       - "3000:3000"
     depends_on:
