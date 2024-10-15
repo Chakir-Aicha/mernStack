@@ -6,6 +6,8 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    deploy:
+      replicas: 1
   backend:
     build:
       context: .
@@ -15,6 +17,8 @@ services:
       - "5000:5000"
     depends_on:
       - mongo
+    deploy:
+      replicas: 2
   frontend:
     build:
       context: ./frontend
@@ -23,5 +27,7 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    deploy:
+      replicas: 2
 volumes:
   mongo-data:
