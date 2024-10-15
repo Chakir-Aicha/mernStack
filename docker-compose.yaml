@@ -1,7 +1,7 @@
+version: '3.7'
 services:
   mongo:
     image: mongo:latest
-    restart: always
     ports:
       - "27017:27017"
     volumes:
@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    image: mernstack_backend:latest  # Utiliser l'image préconstruite
     ports:
       - "5000:5000"
     depends_on:
@@ -17,6 +18,7 @@ services:
   frontend:
     build:
       context: ./frontend
+    image: mernstack_frontend:latest  # Utiliser l'image préconstruite
     ports:
       - "3000:3000"
     depends_on:
